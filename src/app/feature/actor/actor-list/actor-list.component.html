@@ -1,0 +1,20 @@
+<app-menu></app-menu>
+<section class="heading">
+  <span class="page-title font-weight-bold font-italic">[{{title}}]</span>
+</section>
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>ID</th><th>Name</th><th>Birth Date</th><th>Gender</th><th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let actor of actors'>
+      <td>{{actor.id}}</td>
+      <td>{{actor.lastName + ", " + actor.firstName}}</td>
+      <td>{{actor.birthDate}}</td>
+      <td>{{actor.gender}}</td>
+      <td>Detail | Edit</td>
+    </tr>
+  </tbody>
+</table>

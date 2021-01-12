@@ -6,11 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MovieListComponent } from './feature/movie/movie-list/movie-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ActorListComponent } from './feature/actor/actor-list/actor-list.component';
+import { MovieCreateComponent } from './feature/movie/movie-create/movie-create.component';
+import { NoComponentDefinedComponent } from './core/no-component-defined/no-component-defined.component';
+import { MenuComponent } from './core/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieListComponent
+    MovieListComponent,
+    ActorListComponent,
+    MovieCreateComponent,
+    NoComponentDefinedComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
