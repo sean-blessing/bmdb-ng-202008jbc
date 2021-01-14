@@ -2,7 +2,7 @@
 <section class="heading">
   <span class='component-title'>[{{title}}]</span>
 </section>
-<main class="single">
+<main *ngIf='movie' class="single">
   <table class="table table-sm">
     <tr>
       <td>
@@ -42,3 +42,4 @@
 <!--
 <span><button (click)="backClicked()" class="btn btn-sm btn-primary">Back</button></span>
 -->
+

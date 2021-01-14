@@ -14,11 +14,27 @@ export class MovieService {
   // service functions
   // getAll movies
   getAll(): Observable<Movie[]> {
-    return this.http.get(URL+'/') as Observable<Movie[]>;
+    return this.http.get(URL + '/') as Observable<Movie[]>;
+  }
+
+  // get a movie by id
+  getById(id): Observable<Movie> {
+    return this.http.get(URL + '/' + id) as Observable<Movie>;
   }
 
   // create movie
   create(movie: Movie): Observable<Movie> {
-    return this.http.post(URL+'/', movie) as Observable<Movie>;
+    return this.http.post(URL + '/', movie) as Observable<Movie>;
   }
+
+  // update movie
+  update(movie: Movie): Observable<Movie> {
+    return this.http.put(URL + '/', movie) as Observable<Movie>;
+  }
+
+  // delete movie
+  delete(id): Observable<Movie> {
+    return this.http.delete(URL + '/'+id) as Observable<Movie>;
+  }
+
 }
