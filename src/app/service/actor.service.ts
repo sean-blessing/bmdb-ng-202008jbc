@@ -16,4 +16,25 @@ export class ActorService {
   getAll(): Observable<Actor[]> {
     return this.http.get(URL+'/') as Observable<Actor[]>;
   }
+
+
+  // get a actor by id
+  getById(id): Observable<Actor> {
+    return this.http.get(URL + '/' + id) as Observable<Actor>;
+  }
+
+  // create actor
+  create(actor: Actor): Observable<Actor> {
+    return this.http.post(URL + '/', actor) as Observable<Actor>;
+  }
+
+  // update actor
+  update(actor: Actor): Observable<Actor> {
+    return this.http.put(URL + '/', actor) as Observable<Actor>;
+  }
+
+  // delete actor
+  delete(id): Observable<Actor> {
+    return this.http.delete(URL + '/'+id) as Observable<Actor>;
+  }
 }

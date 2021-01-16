@@ -13,6 +13,8 @@ import { MenuComponent } from './core/menu/menu.component';
 import { ActorCreateComponent } from './feature/actor/actor-create/actor-create.component';
 import { MovieDetailComponent } from './feature/movie/movie-detail/movie-detail.component';
 import { MovieEditComponent } from './feature/movie/movie-edit/movie-edit.component';
+import { ActorDetailComponent } from './feature/actor/actor-detail/actor-detail.component';
+import { ActorEditComponent } from './feature/actor/actor-edit/actor-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MovieEditComponent } from './feature/movie/movie-edit/movie-edit.compon
     MenuComponent,
     ActorCreateComponent,
     MovieDetailComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    ActorDetailComponent,
+    ActorEditComponent
   ],
   imports: [
     BrowserModule,
