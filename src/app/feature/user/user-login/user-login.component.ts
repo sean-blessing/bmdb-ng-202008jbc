@@ -12,7 +12,7 @@ import { UserService } from 'src/app/service/user.service';
 export class UserLoginComponent implements OnInit {
   title: string = 'Login';
   msg: string = '';
-  user: User = null;
+  user: User = new User();
 
   constructor(private userSvc: UserService,
               private router: Router) { }
@@ -25,12 +25,18 @@ export class UserLoginComponent implements OnInit {
     // call login service using username and password
     this.userSvc.login(this.user).subscribe(
       resp => {
-        this.user = resp as User;
-        console.log("Successful login!",this.user);
-        this.router.navigateByUrl('/movie-list');
+        if (resp==null) {
+          this.msg = "Invalid username / pwd combo.";
+        }
+        else {
+          this.user = resp as User;
+          console.log("Successful login!",this.user);
+          this.router.navigateByUrl('/movie-list');
+        }
       },
       err => {
         console.log("User login error!!!",err);
+        this.msg = "Error during login"
       }
     );
 
