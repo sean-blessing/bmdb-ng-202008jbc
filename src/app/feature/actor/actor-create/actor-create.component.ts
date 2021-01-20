@@ -19,4 +19,19 @@ export class ActorCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save() {
+    // save the actor to the DB
+    this.actorSvc.create(this.actor).subscribe(
+      resp => {
+        this.actor = resp as Actor;
+        console.log('Actor created',this.actor);
+        // forward to the actor list component
+        this.router.navigateByUrl("/actor-list");
+      },
+      err => {
+        console.log(err);
+      }
+
+    );
+  }
 }
