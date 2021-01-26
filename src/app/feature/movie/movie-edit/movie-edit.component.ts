@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Movie } from 'src/app/model/movie.class';
 import { MovieService } from 'src/app/service/movie.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie-edit',
@@ -16,7 +17,8 @@ export class MovieEditComponent implements OnInit {
 
   constructor(private movieSvc: MovieService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private loc: Location) { }
 
   ngOnInit(): void {
     //get the id from the url
@@ -51,6 +53,10 @@ export class MovieEditComponent implements OnInit {
       }
 
     );
+  }
+
+  backClicked() {
+    this.loc.back();
   }
 
 }

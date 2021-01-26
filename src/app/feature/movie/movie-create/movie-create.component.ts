@@ -2,6 +2,7 @@ import { MovieService } from './../../../service/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../../model/movie.class';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie-create',
@@ -14,7 +15,8 @@ export class MovieCreateComponent implements OnInit {
   submitBtnTitle = "Create";
 
   constructor(private movieSvc: MovieService,
-              private router: Router) { }
+              private router: Router,
+              private loc: Location) { }
 
   ngOnInit(): void {
 
@@ -34,5 +36,9 @@ export class MovieCreateComponent implements OnInit {
       }
 
     );
+  }
+
+  backClicked() {
+    this.loc.back();
   }
 }
