@@ -12,6 +12,7 @@ export class MovieDetailComponent implements OnInit {
   title = "Movie Detail";
   movie: Movie = null;
   movieId: number = 0;
+  msg: string = "";
 
   constructor(private movieSvc: MovieService,
               private router: Router,
@@ -21,17 +22,16 @@ export class MovieDetailComponent implements OnInit {
     //get the id from the url
     this.route.params.subscribe(
       parms => {this.movieId = parms['id'];
-      console.log("MovieID = "+this.movieId);
-    }
+     }
     );
     //get movie by id
     this.movieSvc.getById(this.movieId).subscribe(
       resp => {
         this.movie = resp as Movie;
-        console.log('Movie',this.movie);
       },
       err => {
         console.log(err);
+        this.msg = "Error getting movie for id: "+this.movieId;
       }
     );
   }
@@ -40,12 +40,12 @@ export class MovieDetailComponent implements OnInit {
     this.movieSvc.delete(this.movie.id).subscribe(
       resp => {
         this.movie = resp as Movie;
-        console.log('Movie deleted',this.movie);
         // forward to the movie list component
         this.router.navigateByUrl("/movie-list");
       },
       err => {
         console.log(err);
+        this.msg = "Server Error - DELETE movie for id: "+this.movieId;
       }
 
     );
