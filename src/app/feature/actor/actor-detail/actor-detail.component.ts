@@ -12,6 +12,7 @@ export class ActorDetailComponent implements OnInit {
   title = "Actor Detail";
   actor: Actor = null;
   actorId: number = 0;
+  msg: string = "";
   constructor(private actorSvc: ActorService,
     private router: Router,
     private route: ActivatedRoute) { }
@@ -46,6 +47,7 @@ export class ActorDetailComponent implements OnInit {
       },
       err => {
         console.log(err);
+        this.msg = "Server Error - DELETE actor for id: "+this.actorId;
       }
 
     );
