@@ -26,6 +26,7 @@ export class CreditListComponent implements OnInit {
         this.credits = resp as Credit[];
         for (let c of this.credits) {
           c.actorName = c.actor.lastName + c.actor.firstName;
+          c.movieTitle = c.movie.title;
         }
         console.log('Credits', this.credits);
       },
